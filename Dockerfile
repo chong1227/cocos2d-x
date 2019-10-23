@@ -7,7 +7,6 @@ RUN apt-get -y install \
 	openssl \ 
 	git \
 	locales \
-	ant \
 	unzip \
 	g++ \
 	libgdk-pixbuf2.0-dev \
@@ -44,23 +43,25 @@ RUN \
 	wget https://digitalocean.cocos2d-x.org/Cocos2D-X/cocos2d-x-3.17.2.zip && \
 	unzip cocos2d-x-3.17.2.zip && \
 	rm -rf cocos2d-x-3.17.2.zip
+#Ant
 RUN \
 	wget http://mirrors.tuna.tsinghua.edu.cn/apache//ant/binaries/apache-ant-1.10.7-bin.tar.gz
-	sudo tar -xf apache-ant-1.10.7-bin.tar.gz
+	tar -xf apache-ant-1.10.7-bin.tar.gz
 	rm -rf apache-ant-1.10.7-bin.tar.gz
 
-# RUN apt-get -y remove openjdk-11-* && apt-get -y install openjdk-8-jdk openjdk-8-jre
-# RUN cd ./tools/bin && \
-# 	yes | ./sdkmanager --licenses && \
-# 	yes | ./sdkmanager --install 'platforms;android-28' && \
-# 	yes | ./sdkmanager --install ndk-bundle && \
-# 	yes | ./sdkmanager --install 'lldb;3.1'
+RUN apt-get -y remove openjdk-11-* && apt-get -y install openjdk-8-jdk openjdk-8-jre
+RUN cd ./tools/bin && \
+	yes | ./sdkmanager --licenses && \
+	yes | ./sdkmanager --install 'platforms;android-28' && \
+	yes | ./sdkmanager --install ndk-bundle && \
+	yes | ./sdkmanager --install 'lldb;3.1'
+#JDK
 RUN add-apt-repository ppa:linuxuprising/java
 RUN apt install oracle-java11-installer
 RUN apt install oracle-java11-set-default
 
 # https://stackoverflow.com/questions/54500937/cocos2d-x-android-build-failed
-# RUN apt install ninja-build
+RUN apt install ninja-build
 
 ENV ANDROID_SDK_ROOT=/opt
 ENV NDK_ROOT=/opt/ndk-bundle
