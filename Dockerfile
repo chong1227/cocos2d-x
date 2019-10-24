@@ -56,9 +56,11 @@ RUN cd ./tools/bin && \
 	yes | ./sdkmanager --install ndk-bundle && \
 	yes | ./sdkmanager --install 'lldb;3.1'
 #JDK
+RUN wget https://intl.midoci.com/SNOW/jdk-11.0.5_linux-x64_bin.tar.gz && \
+    cp jdk-11.0.3_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
+
 RUN add-apt-repository ppa:linuxuprising/java
-RUN apt install oracle-java11-installer
-RUN apt install oracle-java11-set-default
+RUN apt install oracle-java11-installer-local
 
 # https://stackoverflow.com/questions/54500937/cocos2d-x-android-build-failed
 RUN apt install ninja-build
