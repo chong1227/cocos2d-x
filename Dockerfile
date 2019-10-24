@@ -49,15 +49,17 @@ RUN \
 	unzip apache-ant-1.10.7-bin.zip && \
 	rm -rf apache-ant-1.10.7-bin.zip
 
+#JDK
+RUN \
+    wget https://intl.midoci.com/SNOW/jdk-11.0.5_linux-x64_bin.tar.gz && \
+    cp jdk-11.0.3_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
+
 RUN apt-get -y remove openjdk-11-* && apt-get -y install openjdk-8-jdk openjdk-8-jre
 RUN cd ./tools/bin && \
 	yes | ./sdkmanager --licenses && \
 	yes | ./sdkmanager --install 'platforms;android-28' && \
 	yes | ./sdkmanager --install ndk-bundle && \
 	yes | ./sdkmanager --install 'lldb;3.1'
-#JDK
-RUN wget https://intl.midoci.com/SNOW/jdk-11.0.5_linux-x64_bin.tar.gz && \
-    cp jdk-11.0.3_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
 
 RUN add-apt-repository ppa:linuxuprising/java
 RUN apt install oracle-java11-installer-local
