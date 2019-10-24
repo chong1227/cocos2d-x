@@ -52,6 +52,7 @@ RUN \
 #JDK
 RUN \
     wget https://intl.midoci.com/SNOW/jdk-11.0.5_linux-x64_bin.tar.gz && \
+    mkdir -P /var/cache/oracle-jdk11-installer-local/ && \
     cp jdk-11.0.5_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
 
 RUN apt-get -y remove openjdk-11-* && apt-get -y install openjdk-8-jdk openjdk-8-jre
