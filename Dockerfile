@@ -63,10 +63,10 @@ RUN cd ./tools/bin && \
 	yes | ./sdkmanager --install 'lldb;3.1'
 
 RUN add-apt-repository ppa:linuxuprising/java
-RUN apt install oracle-java11-installer-local
+RUN apt-get -y install oracle-java11-installer-local
 
 # https://stackoverflow.com/questions/54500937/cocos2d-x-android-build-failed
-RUN apt install ninja-build
+RUN apt-get -y install ninja-build
 
 ENV ANDROID_SDK_ROOT=/opt
 ENV NDK_ROOT=/opt/ndk-bundle
