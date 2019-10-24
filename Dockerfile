@@ -46,8 +46,8 @@ RUN \
 #Ant
 RUN \
 	wget http://mirrors.tuna.tsinghua.edu.cn/apache//ant/binaries/apache-ant-1.10.7-bin.zip
-    unzip apache-ant-1.10.7-bin.zip
-    rm -rf apache-ant-1.10.7-bin.zip
+	unzip apache-ant-1.10.7-bin.zip
+	rm -rf apache-ant-1.10.7-bin.zip
 
 RUN apt-get -y remove openjdk-11-* && apt-get -y install openjdk-8-jdk openjdk-8-jre
 RUN cd ./tools/bin && \
