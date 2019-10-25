@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 
-RUN apt-get -y update
-RUN apt-get -y upgrade
-RUN apt-get -y install software-properties-common \
+RUN apt-get -yqq update
+RUN apt-get -yqq upgrade
+RUN apt-get -yqq install software-properties-common \
  	openssl \ 
  	git \
  	locales \
@@ -28,7 +28,7 @@ RUN apt-get -y install software-properties-common \
 # 	libglfw3-dev \
 # 	xorg-dev
 
-RUN apt-get -y install wget 
+RUN apt-get -yqq install wget 
 
 WORKDIR /opt/
 #ADD sdk-tools-linux-4333796.tar.gz /opt
@@ -60,9 +60,9 @@ RUN \
 #	yes | ./sdkmanager --install ndk-bundle && \
 #	yes | ./sdkmanager --install 'lldb;3.1'
 
-RUN add-apt-repository ppa:linuxuprising/java
-RUN apt-get -y install oracle-java11-installer-local && \
-	yes
+RUN add-apt-repository ppa:linuxuprising/java && \
+    echo oracle-java11-installer shared/accepted-oracle-license-v1-2 select true | sudo /usr/bin/debconf-set-selections && \
+    apt-get -yqq install oracle-java11-installer-local
 
 
 # https://stackoverflow.com/questions/54500937/cocos2d-x-android-build-failed
