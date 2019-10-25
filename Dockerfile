@@ -2,12 +2,11 @@ FROM ubuntu:18.04
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-#RUN apt-get -y install \
-#	software-properties-common \
-# 	openssl \ 
-# 	git \
-# 	locales \
-# 	unzip \
+RUN apt-get -y install software-properties-common \
+ 	openssl \ 
+ 	git \
+ 	locales \
+ 	unzip 
 # 	g++ \
 # 	libgdk-pixbuf2.0-dev \
 # 	python-pip \
