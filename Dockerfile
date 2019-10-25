@@ -2,32 +2,32 @@ FROM ubuntu:18.04
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN apt-get -y install \
-	software-properties-common \
-	openssl \ 
-	git \
-	locales \
-	unzip \
-	g++ \
-	libgdk-pixbuf2.0-dev \
-	python-pip \
-	cmake \
-	libx11-dev \
-	libxmu-dev \
-	libglu1-mesa-dev \
-	libgl2ps-dev \
-	libxi-dev \
-	libzip-dev \
-	libpng-dev \
-	libcurl4-gnutls-dev \
-	libfontconfig1-dev \
-	libsqlite3-dev \
-	libglew-dev \
-	libssl-dev \
-	libgtk-3-dev \
-	libglfw3 \
-	libglfw3-dev \
-	xorg-dev
+#RUN apt-get -y install \
+#	software-properties-common \
+# 	openssl \ 
+# 	git \
+# 	locales \
+# 	unzip \
+# 	g++ \
+# 	libgdk-pixbuf2.0-dev \
+# 	python-pip \
+# 	cmake \
+# 	libx11-dev \
+# 	libxmu-dev \
+# 	libglu1-mesa-dev \
+# 	libgl2ps-dev \
+# 	libxi-dev \
+# 	libzip-dev \
+# 	libpng-dev \
+# 	libcurl4-gnutls-dev \
+# 	libfontconfig1-dev \
+# 	libsqlite3-dev \
+# 	libglew-dev \
+# 	libssl-dev \
+# 	libgtk-3-dev \
+# 	libglfw3 \
+# 	libglfw3-dev \
+# 	xorg-dev
 
 RUN apt-get -y install wget 
 
