@@ -33,21 +33,21 @@ RUN apt-get -y install wget
 
 WORKDIR /opt/
 #ADD sdk-tools-linux-4333796.tar.gz /opt
-RUN \
-	wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \
-	unzip sdk-tools-linux-4333796.zip && \
-	rm -rf sdk-tools-linux-4333796.zip
+#RUN \
+#	wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \
+#	unzip sdk-tools-linux-4333796.zip && \
+#	rm -rf sdk-tools-linux-4333796.zip
 
 #ADD cocos2d-x-3.17.2.tar.gz /opt
-RUN \
-	wget https://digitalocean.cocos2d-x.org/Cocos2D-X/cocos2d-x-3.17.2.zip && \
-	unzip cocos2d-x-3.17.2.zip && \
-	rm -rf cocos2d-x-3.17.2.zip
+#RUN \
+#	wget https://digitalocean.cocos2d-x.org/Cocos2D-X/cocos2d-x-3.17.2.zip && \
+#	unzip cocos2d-x-3.17.2.zip && \
+#	rm -rf cocos2d-x-3.17.2.zip
 #Ant
-RUN \
-	wget http://mirrors.tuna.tsinghua.edu.cn/apache//ant/binaries/apache-ant-1.10.7-bin.zip && \
-	unzip apache-ant-1.10.7-bin.zip && \
-	rm -rf apache-ant-1.10.7-bin.zip
+#RUN \
+#	wget http://mirrors.tuna.tsinghua.edu.cn/apache//ant/binaries/apache-ant-1.10.7-bin.zip && \
+#	unzip apache-ant-1.10.7-bin.zip && \
+#	rm -rf apache-ant-1.10.7-bin.zip
 
 #JDK
 RUN \
@@ -55,11 +55,11 @@ RUN \
     mkdir /var/cache/oracle-jdk11-installer-local/ && \
     cp jdk-11.0.5_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
 
-RUN cd ./tools/bin && \
-	yes | ./sdkmanager --licenses && \
-	yes | ./sdkmanager --install 'platforms;android-28' && \
-	yes | ./sdkmanager --install ndk-bundle && \
-	yes | ./sdkmanager --install 'lldb;3.1'
+#RUN cd ./tools/bin && \
+#	yes | ./sdkmanager --licenses && \
+#	yes | ./sdkmanager --install 'platforms;android-28' && \
+#	yes | ./sdkmanager --install ndk-bundle && \
+#	yes | ./sdkmanager --install 'lldb;3.1'
 
 RUN add-apt-repository ppa:linuxuprising/java
 RUN apt-get -y install oracle-java11-installer-local && \
@@ -67,7 +67,7 @@ RUN apt-get -y install oracle-java11-installer-local && \
 
 
 # https://stackoverflow.com/questions/54500937/cocos2d-x-android-build-failed
-RUN apt-get -y install ninja-build
+#RUN apt-get -y install ninja-build
 
 ENV ANDROID_SDK_ROOT=/opt
 ENV NDK_ROOT=/opt/ndk-bundle
